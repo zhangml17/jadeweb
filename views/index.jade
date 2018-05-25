@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  - if(!user)
+    div.hero-unit
+    h1 Welcome to MIcroblog
+  
+    p Welcome to ZZZ
+    p
+      a(class='btn btn-primary btn-large' href='/login')  Login
+      a(class='btn btn-large' href='/reg' )  Regist
+  - else
+    include ./say.jade
+  include ./posts.jade   

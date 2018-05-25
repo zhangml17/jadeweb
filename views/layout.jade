@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title= title
+
+    link(rel='icon' ,href='/images/favicon.icon')
+  
+    link(rel='stylesheet',href='/stylesheets/signin.css')
+    link(rel='stylesheet',href='/stylesheets/jumbotron.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet',href='/stylesheets/navbar-fixed-top.css')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    link(rel='stylesheet',href='/stylesheets/bootstrap-responsive.css')
+    script(src='/javascript/jquery-3.3.1.js')
+    script(src='/javascript/bootstrap.js')
+  body
+    div.navbar.navbar-fixed-top
+      div.narbar-inner
+        div.container
+          a(class='btn btn-navbar' data-toggle='collapse' data-target='.nav-collapse')  span.icon-bar  span.icon-bar  span.icon-bar
+          a(class='brand' href='/')  Microblog
+          div.nav-collapse
+            ul.nav
+              li.active
+                a(href='/')  Index  |
+              - if(!user)
+               li
+                 a(href='/login')  Login  |
+               li
+                 a(href='/reg')  Regist  |
+              - else
+                li
+                 a(href='/logout')  Exit
+    div#container.container
+      - if(sucess)
+       div.alert.alert-success=success
+      - if(error)
+       div.alert.alert-error=error
+    block content
+      include footer.jade
